@@ -6,10 +6,10 @@ focus = document.getElementById('focus');
 
 // Show Time
 function showTime() {
-  let today = new Date();
-  hour = today.getHours();
-  min = today.getMinutes();
-  sec = today.getSeconds();
+  let today = new Date(),
+    hour = today.getHours(),
+    min = today.getMinutes(),
+    sec = today.getSeconds();
 
   //   Set AM or PM syntax
   const amPm = hour >= 12 ? 'PM' : 'AM';
@@ -28,5 +28,27 @@ function showTime() {
   }
 }
 
+// Set background and Greeting
+function setBgGreet() {
+  let today = new Date(),
+    hour = today.getHours();
+
+  if (hour > 12) {
+    // morning
+    document.body.style.backgroundImage = 'url(../img/morning.jpg)';
+    greeting.textContent = 'Good Morning';
+  } else if (hour < 18) {
+    // afternoon
+    document.body.style.backgroundImage = 'url(../img/afternoon.jpg)';
+    greeting.textContent = 'Good Afternoon';
+  } else {
+    // evening
+    document.body.style.backgroundImage = 'url(../img/night.jpg)';
+    greeting.textContent = 'Good Evening';
+    document.body.style.color = 'white';
+  }
+}
+
 // Run
 showTime();
+setBgGreet();
